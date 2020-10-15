@@ -1,4 +1,4 @@
-package com.puchungis.platzimarket;
+package com.puchungis.platzimarket.web.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,5 +16,6 @@ public class HolamundoController {
 		return "Nunca dejes de intentarlo";
 	 
 	}
+
 	
 }
