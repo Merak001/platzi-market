@@ -3,38 +3,42 @@ package com.puchungis.platzimarket.persistence.entity;
 import javax.persistence.*;
 
 @Entity
-@Table (name = "categorias")
+@Table(name = "categorias")
 public class Categoria {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_categoria")
 	private Integer idCategoria;
-    
-    	    private String descripcion;
-    private Boolean estado;
 
-    public Integer getIdCategoria() {
-        return idCategoria;
-    }
+	private String descripcion;
 
-    public void setIdCategoria(Integer idCategoria) {
-        this.idCategoria = idCategoria;
-    }
+	private Boolean estado;
 
-    public String getDescripcion() {
-        return descripcion;
-    }
+	@OneToMany(mappedBy = "categoria")
+	private java.util.List<Producto> productos;
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public Boolean getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Boolean estado) {
-        this.estado = estado;
-    }
+	public Integer getIdCategoria() {
+		return idCategoria;
 	}
+
+	public void setIdCategoria(Integer idCategoria) {
+		this.idCategoria = idCategoria;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public Boolean getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
+}

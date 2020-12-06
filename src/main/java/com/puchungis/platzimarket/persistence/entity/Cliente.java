@@ -1,5 +1,7 @@
 package com.puchungis.platzimarket.persistence.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,6 +21,11 @@ public class Cliente {
 	@Column(name = "correo_electronico")
 	private String correoElectronico;
 
+	//Name es el nombre con el que lo guardamos en la varaible de Compras para hacer la relación con la clase Cliente
+	@Column(name = "cliente")
+	private List<Compra> compras;
+	
+	
 	public String getId() {
 		return id;
 	}

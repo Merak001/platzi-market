@@ -1,13 +1,10 @@
 package com.puchungis.platzimarket.persistence.entity;
 
-import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.springframework.context.annotation.EnableMBeanExport;
 
 @Entity
 @Table(name = "compras_productos")
@@ -18,7 +15,21 @@ public class ComprasProducto {
 	private Integer cantidad;
 	private Integer total;
 	private boolean estado;
+	
+	
+	
+	@ManyToOne
+	@JoinColumn(name="id_compra",insertable = false,updatable = false)
+	private Compra compras;
 
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "id_producto",insertable = false,updatable = false)
+	private Producto producto;
+	
+	
+	
 	public Integer getCantidad() {
 		return cantidad;
 	}
